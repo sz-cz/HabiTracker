@@ -20,13 +20,9 @@ export class HabitDetailsComponent implements OnInit {
 
   loadHabit() {
     const id = +this.route.snapshot.params['id'];
-    // this.habitsService.passHabits[id]
     this.habit = this.habitsService.getHabit(id);
   }
   consolog(item) {
     console.log(item)
   }
-  // addLog($event, i) {
-  //   this.habit.days[i].log=$event.target.textContent
-  // }
 }

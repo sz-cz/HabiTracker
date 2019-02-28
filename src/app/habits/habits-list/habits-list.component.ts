@@ -20,12 +20,6 @@ export class HabitsListComponent implements OnInit, AfterViewInit {
     this.habitsService.habitToPass$.subscribe(habit => {
       this.habits = this.habits.concat(habit)
     })
-    this.habits.forEach((habit, index) => {
-      // if (3 >= 2) {
-      //   this.archive(index)
-      // }
-    })
-    // this.pushNewHabit()
   }
 
   ngAfterViewInit() {
@@ -37,9 +31,6 @@ export class HabitsListComponent implements OnInit, AfterViewInit {
   changeValue(day, habit) {
     if (habit.date > this.today) return;
     if (day.value.value === 6)  return ;
-    // if (habit.value1 && habit.value2 && habit.value3 && habit.value4 && habit.value5) {
-    //   day.value.value >= 5 ? day.value.value = 0 : day.value.value++;
-    // } else if (habit.value2 && habit.value3 && habit.value4 && habit.value5) {
       if (!habit.value1 && !habit.value2 && !habit.value4 && !habit.value5) {
         day.value.value >= 3 ? day.value.value = 0 : day.value.value += 3;
       } else {
@@ -64,8 +55,6 @@ export class HabitsListComponent implements OnInit, AfterViewInit {
   }
 
   showDetails(habit) {
-    const habitName = this.habitName.nativeElement;
     habit.detailsShowed = !habit.detailsShowed;
-    habit.detailsShowed == true ? this.renderer.setStyle(habitName, 'color', 'violet') : this.renderer.setStyle(habitName, 'color', 'black')
   }
 }

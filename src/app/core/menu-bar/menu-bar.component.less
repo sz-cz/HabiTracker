@@ -35,3 +35,32 @@ div.menu-bar {
         bottom: .70em
     }
 }
+
+@media (max-width: 800px) {
+    div.menu-bar {
+        ul {
+            margin-left: 1em;
+
+            li {
+                font-size: 1.1em;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    div.menu-bar {
+
+        div.title {
+            display: none;
+        }
+        ul {
+            margin-left: 0em;
+
+            li {
+                font-size: 1em;
+                padding-right: .5em;
+            }
+        }
+    }
+}

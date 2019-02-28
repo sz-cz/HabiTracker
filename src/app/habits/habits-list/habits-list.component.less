@@ -87,9 +87,9 @@ div.days {
         color: white;
     }
 
-div.day:hover {
-    filter: brightness(110%);
-}
+    div.day:hover {
+        filter: brightness(110%);
+    }
 }
 .challenges {
     display: flex;
@@ -113,4 +113,45 @@ div.day:hover {
     }
 }
 
+@media (max-width: 800px) {
+    div.days {
+        flex-wrap: wrap;
+        padding-bottom: 0;
+    
+        div.day {
+            flex-basis: calc(100%/14);
+            margin-bottom: .25em
+        }
 
+    }
+    .challenges {
+        .challenge {
+            padding: .2em .2em;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    div.days {
+    
+        div.day {
+            flex-basis: calc(100%/7);
+            margin-bottom: .1em
+        }
+    }
+    .challenges {
+        margin-bottom: .5em;
+        flex-wrap: wrap;
+
+        .challenge {
+            flex-basis: 100%;
+
+        }
+    }
+    div.showed-details {
+        .details-buttons {
+            bottom: 0;
+            right: 0;
+        }
+    }
+}

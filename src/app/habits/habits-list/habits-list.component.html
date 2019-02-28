@@ -21,7 +21,6 @@
       <div class="challenges">
         <div class="challenge" *ngFor="let challenge of habit.challenges" (click)="changeStatus(challenge)" [ngClass]="{'value3': challenge.status == true}">{{challenge.challengeName}}</div>
       </div>
-      <!-- <p>Nawyk utworzony dnia: {{habit.date}}</p> -->
       <div class="details-buttons">
         <div class="detail-button" (click)="delete(habit)"><img class="delete" src="../../../assets/img/delete.png" title="Zrezygnuj"></div>
         <div class="detail-button" (click)="archive(i)"><img class="archive" src="../../../assets/img/archive.png" title="Przenieś do archiwum"></div>
