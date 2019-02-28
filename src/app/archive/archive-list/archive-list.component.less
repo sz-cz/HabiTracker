@@ -1,0 +1,100 @@
+div.habit-title {
+    margin-bottom: .5em;
+    font-size: 1.25em;
+    position: relative;
+
+    b {
+        background-color: transparent;
+    }
+
+    span.additional-values {
+        b {
+            font-size: 80%;
+        }
+    }
+
+    .bar {
+        position: absolute;
+        right: 1%;
+        top: 1%;
+
+        img {
+            height: 1em;
+            transition: .3s;
+
+            &:hover {
+                transform: rotate(90deg);
+            }
+            &.active {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    
+}
+div.details {
+    height: 0;
+    transition: .3s;
+
+    * {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+    }
+    
+}
+div.showed-details {
+    height: 100px;
+    position: relative;
+
+    * {
+        display: block;
+        opacity: 1;
+    }
+    
+    .details-buttons {
+        position: absolute;
+        display: flex;
+        bottom: 1%;
+        right: 1%;
+
+        .detail-button img {
+            height: 1em;
+            display: flex;
+            margin-left: .5em;
+            margin-right: .5em;
+            transition: .2s;
+
+            &:hover {
+                height: 1.2em;
+            }
+        }
+    }
+}
+
+
+div.showed-details div.days {
+    display: flex;
+    padding-bottom: 1em;
+
+    div.day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .2em 0;
+        color: white;
+        cursor: pointer;
+    }
+
+// div.day:hover {
+//     filter: brightness(125%);
+// }
+
+    div.today {
+        margin: 0 4px;
+        position: relative;
+}
+
+
+
+}

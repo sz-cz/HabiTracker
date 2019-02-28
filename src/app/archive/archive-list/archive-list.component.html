@@ -1,0 +1,24 @@
+<app-site-bar><span subPageName><b>Archiwum</b></span></app-site-bar>
+<div class="container">
+  <div *ngIf="!archive[0]" class="content">
+      <p >Nie ukończyłeś ani nie przeniosłeś do archiwum jeszcze żadnego nawyku.</p>
+  </div>
+  <div *ngFor="let habit of archive; let i = index" class="content">
+    <div class="habit-title">
+      <p>{{habit.nameStart}} <span class="additional-values"><b class="value1">{{habit.value1}} </b><b class="value2">{{habit.value2}} </b></span><b class="value3"> {{habit.value3}} </b><span class="additional-values"><b class="value4">{{habit.value4}} </b><b class="value5">{{habit.value5}}</b></span> {{habit.nameEnd}} ({{habit.date.getDate()}}.{{habit.date.getMonth()+1}}.{{habit.date.getFullYear()}})</p>
+      <div class="bar" (click)="showDetails(habit)"><img [ngClass]="{'active': habit.detailsShowed == true}" src="../../../assets/img/more.png" alt=""></div>
+     </div>
+
+    <div class="details" [ngClass]="{'showed-details': habit.detailsShowed == true}">
+        <div class="days">
+            <div *ngFor="let day of habit.days | keyvalue" [ngClass]="{'value0': day.value.value == 0, 'value1': day.value.value == 1, 'value2': day.value.value == 2, 'value3': day.value.value == 3, 'value4': day.value.value == 4, 'value5': day.value.value == 5, 'value6': day.value.value == 6}" class="day">{{day?.value.date.getDate()}}</div>
+          </div>
+      <p>OPIS: {{habit.description}}</p>
+      <p>DATA: {{habit.date}}</p>
+      <div class="details-buttons">
+        <div class="detail-button" (click)="delete(habit)"><img class="delete" src="../../../assets/img/delete.png" title="Usuń z archiwum"></div>
+        <div class="detail-button" [routerLink]="['/archive', habit.id]"><img class="log" src="../../../assets/img/note.png" title="Dodaj wpis do dziennika nawyku"></div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<app-site-bar><span subPageName><b>Nawyki</b></span></app-site-bar>
+
+<div class="container">
+  <div *ngIf="!habits[0]" class="content">
+      <p >Nie śledzisz żadnych nawyków. Przejdź do zakładki DODAJ, aby utworzyć nowy nawyk.</p>
+  </div>
+  <div *ngFor="let habit of habits; let i = index" class="content">
+    <div class="habit-title">
+      <p #habitName>{{habit.nameStart}} <span class="additional-values"><b class="value1">{{habit.value1}} </b><b class="value2">{{habit.value2}} </b></span><b class="value3"> {{habit.value3}} </b><span class="additional-values"><b class="value4">{{habit.value4}} </b><b class="value5">{{habit.value5}}</b></span> {{habit.nameEnd}}<br>
+        <span *ngIf="habit.date > this.today">Rozpoczniesz nawyk dopiero {{habit.date.getDate()}}.{{habit.date.getMonth() + 1}}.{{habit.date.getFullYear()}}</span></p>
+      <div class="bar" (click)="showDetails(habit)"><img [ngClass]="{'active': habit.detailsShowed == true}" src="../../../assets/img/more.png" alt=""></div>
+    </div>
+    <div class="days">
+      <div *ngFor="let day of habit.days | keyvalue" (click)="changeValue(day, habit)" [ngClass]="{'value0': day.value.value == 0, 'value1': day.value.value == 1, 'value2': day.value.value == 2, 'value3': day.value.value == 3, 'value4': day.value.value == 4, 'value5': day.value.value == 5, 'value6': day.value.value == 6, 'today': day.value.date.getDate() == this.today.getDate() && day.value.date.getMonth() == this.today.getMonth() && day.value.date.getFullYear() == this.today.getFullYear()}" class="day">{{day?.value.date.getDate()}}</div>
+    </div>
+    <div class="details" [ngClass]="{'showed-details': habit.detailsShowed == true}">
+      <div class="description">
+          <p>{{habit.description}}</p>
+      </div>
+      <p>Wyzwania powiązane z nawykiem:</p>
+      <div class="challenges">
+        <div class="challenge" *ngFor="let challenge of habit.challenges" (click)="changeStatus(challenge)" [ngClass]="{'value3': challenge.status == true}">{{challenge.challengeName}}</div>
+      </div>
+      <!-- <p>Nawyk utworzony dnia: {{habit.date}}</p> -->
+      <div class="details-buttons">
+        <div class="detail-button" (click)="delete(habit)"><img class="delete" src="../../../assets/img/delete.png" title="Zrezygnuj"></div>
+        <div class="detail-button" (click)="archive(i)"><img class="archive" src="../../../assets/img/archive.png" title="Przenieś do archiwum"></div>
+        <div class="detail-button" [routerLink]="['/habits', habit.id]"><img class="log" src="../../../assets/img/note.png" title="Dodaj wpis do dziennika nawyku"></div>
+    </div>
+    </div>
+  </div>
+</div>

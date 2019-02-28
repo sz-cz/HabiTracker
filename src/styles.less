@@ -1,1 +1,138 @@
-/* You can add global styles to this file, and also import other style files */
+@value0-color: rgb(219, 95, 57);
+@value1-color: rgb(217, 219, 57);
+@value2-color: rgb(151, 194, 49);
+@value3-color: rgb(68, 192, 51);
+@value4-color: rgb(62, 194, 194);
+@value5-color: rgb(62, 141, 187);
+@value6-color: rgb(80, 80, 80);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tw Cen MT, sans-serif;
+}
+
+body {
+    background-image: url(assets/img/confectionary.png);
+
+    h2 {
+        font-weight: normal;
+        margin-bottom: .25em;
+        margin-left: .5em;
+    }
+
+    .card h2 {
+        margin-left: 1.5em;
+        margin-top: 1em
+    }
+    p {
+        font-family: carlito;
+    }
+    span {
+        font-family: carlito;
+    }
+}
+
+div.container {
+    padding: 2em 0em;
+    margin: 0 auto;
+    max-width: 1200px;
+    // min-height: 90vh;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px #eee;
+
+    div.content {
+        // border-left: 4px solid #ddd;
+        padding: 1em 2em;
+        border-bottom: #eee solid 1px;
+        background-color: #fff;
+
+        &:nth-child(even) {
+            background-color: #fbfbfb;
+        }
+
+        p {
+            margin-bottom: .5em;
+            font-size: 1.1em;
+        }
+    }
+}
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    color: white;
+    background: blue;
+    padding-top: 5px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+}
+.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2em 0;
+    // flex-basis: 3.5%;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px #fff solid;
+    background-color: #ccc;
+    color: white;
+    cursor: pointer;
+    // border-radius: 50%
+}
+
+.value0 {
+    color: @value0-color;
+    background-color: @value0-color
+}
+.value1 {
+    color: @value1-color;
+    background-color: @value1-color
+}
+.value2 {
+    color: @value2-color;
+    background-color: @value2-color
+}
+.value3 {
+    color: @value3-color;
+    background-color: @value3-color
+}
+.value4 {
+    color: @value4-color;
+    background-color: @value4-color
+}
+.value5 {
+    color: @value5-color;
+    background-color: @value5-color
+}
+.value6 {
+    color: @value6-color;
+    background-color: @value6-color
+}
+b {
+    // text-decoration: underline
+    font-size: 125%;
+}
+div.today {
+    margin: 0 4px;
+    position: relative;
+    border-radius: 50%;
+    font-weight: bold;
+}
+div.description {
+    background-color: #fcfcfc;
+    padding: 0.5em 0;
+    margin-bottom: .5em;
+    border-bottom: #eee 1px dotted;
+    border-top: #eee 1px dotted;
+
+}

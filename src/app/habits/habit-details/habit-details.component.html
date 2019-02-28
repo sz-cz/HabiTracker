@@ -1,0 +1,8 @@
+<app-site-bar><span subPageName><b>Dziennik zadania {{habit.name}}</b></span></app-site-bar>
+<div class="container">
+  <div *ngFor="let day of habit.days | keyvalue; let i = index" class="content">
+    <p><b>Dzień {{i+1}} ({{day.value.date.getDate()}}.{{day.value.date.getMonth() + 1}})</b>:</p>
+      <p>„<span class="log" contenteditable="true" [textContent]="day.value.log" (input)="day.value.log=$event.target.textContent">{{day.value.log}}</span>”<span *ngIf="day.value.log == ''" class="faded"> Nie masz żadnego wpisu na ten dzień. Kliknij pomiędzy cudzysłowami i zacznij pisać!</span></p>
+    <!-- <button (click)="consolog(day.value.log)">Consoleta</button> -->
+  </div>
+</div>

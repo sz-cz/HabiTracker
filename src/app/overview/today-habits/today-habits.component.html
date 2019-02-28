@@ -1,0 +1,17 @@
+
+  <h2>Dzisiejsze nawyki - szybki podgląd</h2>
+  <div  class="content">
+  <div *ngFor="let habit of habits; let i = index"  >
+    <div *ngFor="let day of habit.days | keyvalue">
+      <div *ngIf="day.value.date.getDate() == this.today.getDate() && day.value.date.getMonth() == this.today.getMonth()" id="check-today">
+        <div class="days">
+            <div (click)="changeValue(day, habit)" [ngClass]="{'value0': day.value.value == 0, 'value1': day.value.value == 1, 'value2': day.value.value == 2, 'value3': day.value.value == 3, 'value4': day.value.value == 4, 'value5': day.value.value == 5, 'value6': day.value.value == 6, 'today': day.value.date == this.today.getDate(), 'none': day.value.date.getDate() !== this.today.getDate()}" class="day">{{day?.value.date.getDate()}}</div>
+          </div>
+          <div class="name">
+            <p>{{habit.nameStart}} {{habit.value3}} {{habit.nameEnd}}</p>
+          </div>
+          <!-- <div *ngIf="day.value.date.getDate() == this.today.getDate">Nie masz żadnych nawyków do oznaczenia dzisiaj</div> -->
+        </div>
+    </div>
+  </div>
+</div>

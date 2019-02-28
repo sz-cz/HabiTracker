@@ -1,0 +1,97 @@
+<app-site-bar><span subPageName><b>Dodaj nawyk</b></span></app-site-bar>
+<div class="container">
+    <h2>Utwórz nowy nawyk</h2>
+  <div class="content">
+  <div [formGroup]="habitForm">
+    <div class="main-row">
+      <div class="input-row">
+        <input class="text" formControlName="nameStart" type="text" placeholder="Napiszę"><input class="value" formControlName="value3" type="number" placeholder="40"><input  class="text" formControlName="nameEnd" type="text" placeholder="linijek kodu">
+      </div>
+      <div class="description-row">
+        <p>nazwa i cel nawyku</p>
+      </div>
+    </div>
+    <div class="main-row error" *ngIf="!habitForm.get('nameStart').valid && habitForm.get('nameStart').dirty || !habitForm.get('value3').valid && habitForm.get('value3').dirty">
+        <div class="inputs-row">
+          <input formControlName="isMeasurable" type="checkbox" (change)="toggleValidity()">
+        </div>
+        <div class="description-row">
+          <p>Musisz wypełnić dwa pierwsze pola. Jeśli nie chcesz sprowadzić swojego nawyku do liczby albo nie możesz jej podać (np. "Nie będę palił papierosów"), zaznacz powżysze okienko, a walidacja pola zostanie wyłączona.</p>
+        </div>
+      </div>
+    <div class="main-row">
+      <div class="input-row">
+        <textarea formControlName="description" name="" id="" rows="4" placeholder="Jeśli twoje postanowienie wymaga dookreślenia, albo ustalenia specjalnych warunków, napisz je tutaj"></textarea>
+    </div>
+    <div class="description-row">
+      <p>opis</p>
+    </div>
+    </div>
+    <div class="main-row">
+        <div class="inputs-row">
+                <input class="value1" formControlName="value1" type="number" placeholder="10">
+                <p>minimum</p>
+        </div>
+        <div class="inputs-row">
+                <input class="value2" formControlName="value2" type="number" placeholder="20">
+                <p>awaryjny</p>
+        </div>
+        <div class="inputs-row">
+        </div>
+                <!-- <p class="error" *ngIf="habitForm.get('value2').errors?.value2 && habitForm.get('value2').dirty">To pole jest wymagane</p> -->
+        <div class="inputs-row">
+               <input class="value4" formControlName="value4" type="number" placeholder="50">
+               <p>dodatkowy</p>
+        </div>
+        <div class="inputs-row">        
+                <input class="value5" formControlName="value5" type="number" placeholder="60">
+                <p>maksimum</p>
+        </div>
+        <div class="description-row">
+          <p>wybierz cele dodatkowe</p>
+        </div>
+    </div>
+
+  <div class="main-row">
+      <div class="inputs-row">
+        <input formControlName="day" type="number" max="31" (change)="setDays()">
+      </div>
+      <div class="inputs-row">
+        <input formControlName="month" type="number" max="12" (change)="setDays()">
+      </div>
+      <div class="inputs-row">
+        <input formControlName="year" type="number" (change)="setDays()">
+     </div>
+      <p class="error" *ngIf="!habitForm.get('month').valid && habitForm.get('month').dirty || !habitForm.get('day').valid && habitForm.get('day').dirty">Nieprawidłowa data</p>
+
+      <div class="description-row">
+        <p>Dzień rozpoczęcia</p>
+      </div>
+    </div>
+
+
+    <div class="main-row" formArrayName="challenge" *ngFor="let challenge of challenge.controls; let i = index">
+      <div [formGroupName]="i">
+        <div class="input-row">
+        <input class="challenge" formControlName="challengeName" type="text">
+      </div>
+      <div class="description-row">
+        <p><span (click)="removeChallenge(i)"><img class="delete" src="../../../assets/img/delete.png" title="Zrezygnuj"></span></p>
+      </div>
+
+      </div>
+    </div>
+    <button class="addChallenge" (click)="addChallenge()">Dodaj wyzwanie</button>
+
+  </div>
+    <div *ngFor="let habit of habits; let i = index">
+        <p>Zaznacz dni, w które nie będziesz wykonywać nawyku, np. weekendy. Po utworzeniu nawyku nie będziesz mógł tego zmienić.</p>
+        <div class="days">
+          <div *ngFor="let day of habit.days | keyvalue" (click)="changeValue(day)" [ngClass]="{'value0': day.value.value == 7, 'value6': day.value.value == 6}" class="day">{{day?.value.date.getDate()}}</div>
+        </div>
+      </div>
+      <button [disabled]="habitForm.invalid" (click)="addHabit()" type="submit">Utwórz</button>
+  </div>
+  
+  
+</div>

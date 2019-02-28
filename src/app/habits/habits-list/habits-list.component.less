@@ -1,0 +1,116 @@
+@value3-color: rgb(68, 192, 51);
+
+div.content:hover span.additional-values {
+    display: inline-block
+}
+
+div.habit-title {
+    margin-bottom: .5em;
+    font-size: 1.25em;
+    position: relative;
+
+    b {
+        background-color: transparent;
+    }
+
+    span.additional-values {
+        display: none
+    }
+
+    .bar {
+        position: absolute;
+        right: 1%;
+        top: 1%;
+
+        img {
+            height: 1em;
+            transition: .3s;
+
+            &:hover {
+                transform: rotate(90deg);
+            }
+            &.active {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    
+}
+div.details {
+    // height: 0;
+    transition: .3s;
+
+    * {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+    }
+}
+div.showed-details {
+    // height: 100px;
+    position: relative;
+    padding-bottom: 1em;
+
+    * {
+        display: block;
+        opacity: 1;
+    }
+    .challenges {
+        display: flex;
+    }
+
+    .details-buttons {
+        position: absolute;
+        display: flex;
+        bottom: 1%;
+        right: 1%;
+
+        .detail-button img {
+            height: 1em;
+            display: flex;
+            margin-left: .5em;
+            margin-right: .5em;
+            transition: .2s;
+
+            &:hover {
+                height: 1.2em;
+            }
+        }
+    }
+}
+
+div.days {
+    display: flex;
+    padding-bottom: 1em;
+
+    div.day {
+        color: white;
+    }
+
+div.day:hover {
+    filter: brightness(110%);
+}
+}
+.challenges {
+    display: flex;
+    // margin-bottom: 1em;
+
+    .challenge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .2em 0;
+        flex-basis: 33.3%;
+        height: 2.5em;
+        border: 1px #fff solid;
+        background-color: #ccc;
+        color: white;
+        cursor: pointer;
+    }
+    .value3 {
+        // color: @value3-color;
+        background-color: @value3-color
+    }
+}
+
+

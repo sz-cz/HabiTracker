@@ -1,0 +1,155 @@
+
+div.habit-title {
+    margin-bottom: .5em;
+    font-size: 1.25em;
+    position: relative;
+
+    span {
+        font-family: carlito;
+        display: inline-block;
+        font-size: .5em;
+        margin-left: 1em;
+        padding: .37em;
+        border-radius: 50%;
+        background-color: #ddd;
+    }
+    span:nth-child(1) {
+        background-color: rgb(233, 159, 48);
+    }
+    span:nth-child(2) {
+        background-color: rgb(230, 226, 38);
+    }
+    span:nth-child(3) {
+        background-color: rgb(99, 196, 34);
+    }
+    span:nth-child(4) {
+        background-color: rgb(50, 123, 233);
+        color: white;
+    }
+    span:nth-child(5) {
+        background-color: rgb(110, 54, 212);
+        color: white;
+    }
+
+    .bar {
+        position: absolute;
+        right: 1%;
+        top: 1%;
+
+        img {
+            height: 1em;
+            transition: .3s;
+
+            &:hover {
+                transform: rotate(90deg);
+            }
+            &.active {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    
+}
+div.details {
+    height: 0;
+    transition: .3s;
+
+    * {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+    }
+}
+div.showed-details {
+    height: 50px;
+    position: relative;
+
+    * {
+        display: block;
+        opacity: 1;
+    }
+    .details-buttons {
+        position: absolute;
+        display: flex;
+        bottom: 1%;
+        right: 1%;
+
+        .detail-button img {
+            height: 1em;
+            display: flex;
+            margin-left: .5em;
+            margin-right: .5em;
+            transition: .2s;
+
+            &:hover {
+                height: 1.2em;
+            }
+        }
+    }
+}
+
+
+div.days {
+    display: flex;
+    padding-bottom: 1em;
+
+    div.day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .2em 0;
+        flex-basis: 3.5%;
+        border: 1px #fff solid;
+        background-color: #ccc;
+        color: white;
+        cursor: pointer;
+    }
+
+div.day:hover {
+    filter: brightness(125%);
+}
+
+    div.value0 {
+        background-color: rgb(199, 35, 35);
+    }
+    div.value1 {
+        background-color: rgb(233, 159, 48);
+    }
+    div.value2 {
+        background-color: rgb(230, 226, 38);
+    }
+    div.value3 {
+        background-color: rgb(99, 196, 34);
+    }
+    div.value4 {
+        background-color: rgb(50, 123, 233);
+    }
+    div.value5 {
+        background-color: rgb(110, 54, 212);
+    }
+    div.value6 {
+        background-color: rgb(80, 80, 80);
+    }
+    div.today {
+        margin: 0 4px;
+        position: relative;
+
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: -12px;
+        //     background-color: rgb(99, 196, 34);
+        //     width: 8px;
+        //     height: 8px;
+        //     border-radius: 50%;
+        // }
+    }
+}
+
+.faded {
+    color: #ccc;
+}
+.log {
+    padding: 0 .25em;
+}
+

@@ -1,0 +1,153 @@
+.error {
+    background-color: rgb(248, 175, 175);
+}
+h2 {
+    margin-left: 1.5em;
+}
+div.main-row {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+    border-bottom: 2px dotted #aaa;
+    padding: 0.5em 1.5em 0 1em;
+
+    // &:nth-child(odd) {
+    //     background-color: #f5f5f5;
+    // }
+
+    .inputs-row {
+        display: flex;
+        flex-basis: 10%;
+        margin-bottom: .5em;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+
+        input {
+            // flex-basis: 10%;
+            width: 4em;
+            height: 1.5em;
+            font-size: 1.25em;
+            text-align: center;
+            border: solid 1px #ccc
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .input-row {
+        display: flex;
+        flex-basis: 100%;
+        margin-bottom: .5em;
+
+        textarea {
+            width: 100%;
+            font-size: 1.25em;
+        }
+        input.challenge {
+            width: 600px;
+            text-align: center;
+        }
+        
+        .text {
+            flex-basis: 40%;
+            flex-grow: 1;
+            text-align: right;
+
+            &:nth-of-type(3) {
+                text-align: left;
+            }
+        }
+
+
+        .value {
+            width: 5em;
+            text-align: center;
+            background-color: rgb(68, 192, 51);
+        }
+    }
+    .description-row {
+        flex-basis: 100%;
+    }
+}
+button {
+    padding: 1em;
+    margin: 1em 0 .5em 50%;
+    transform: translateX(-50%);
+    background-color: #dd1133;
+    border: none;
+    border-radius: 8px;
+    text-transform: uppercase;
+    color: white;
+
+    &:hover {
+        background-color: #990033;
+    }
+    &:disabled {
+        background-color: #aaa;
+    }
+}
+button.addChallenge {
+    padding: .5em;
+}
+
+div.habit-title {
+    margin-bottom: .5em;
+    font-size: 1.25em;
+
+    .delete {
+        text-align: right;
+        margin-left: 30em;
+    }
+}
+
+div.days {
+    display: flex;
+    padding-bottom: 1em;
+
+    div.day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .2em 0;
+        flex-basis: 3.5%;
+        border: 1px #fff solid;
+        background-color: #ccc;
+        color: white;
+        cursor: pointer;
+    }
+}
+p {
+    font-size: 1em;
+    color: #000;
+    text-align: center;
+}
+
+
+input {
+    height: 1.75em;
+    border: none;
+    color: black;
+    font-size: 1.5em;
+    padding: 10px;
+
+    &::placeholder {
+        color: #666
+    }}
+
+    div.days {
+        div.value6 {
+            background-color: rgb(80, 80, 80)
+        }
+    }
+    img.delete {
+        height: 1em;
+        display: inline-block;
+        margin-left: .5em;
+        margin-right: .5em;
+        transition: .2s;
+    }
