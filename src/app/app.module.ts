@@ -10,9 +10,10 @@ import { HabitsModule } from './habits/habits.module';
 import { AddHabitModule } from './add-habit/add-habit.module';
 import { HabitsService } from './habits.service';
 import { ArchiveModule } from './archive/archive.module';
-// import { LoginModule } from './login/login.module';
-// import { AuthService } from './auth/auth.service';
-// import { AuthGuard } from './auth/auth.guard';
+import { LoginModule } from './login/login.module';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
+import { LayoutService } from './layout.service';
 
 @NgModule({
   declarations: [
@@ -27,10 +28,9 @@ import { ArchiveModule } from './archive/archive.module';
     // StatsModule,
     AddHabitModule,
     ArchiveModule,
-    // LoginModule
+    LoginModule
   ],
-  providers: [HabitsService],
-  // providers: [HabitsService, AuthService, AuthGuard],
+  providers: [HabitsService, AuthService, AuthGuard, LayoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

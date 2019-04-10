@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from './layout.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'Habit Tracker';
+  layoutServiceVisible : boolean = false
+
+  constructor(private layoutService : LayoutService) {}
+
+  ngOnInit() {
+    this.layoutService.layoutSource$.subscribe((isVisible) => {
+      this.layoutServiceVisible = isVisible
+    })
+  }
 }
