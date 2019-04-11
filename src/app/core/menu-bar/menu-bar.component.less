@@ -21,6 +21,15 @@ div.menu-bar {
             &:hover {
                 background-color: #009218;
             }
+
+            &.logout {
+                padding-right: .5em;
+
+                i {
+                    font-size: 1.5em;
+                    vertical-align: middle;
+                }
+            }
         }
         li.active {
             background-color: #017514;
@@ -37,12 +46,14 @@ div.menu-bar {
 }
 
 @media (max-width: 800px) {
+
     div.menu-bar {
         ul {
             margin-left: 1em;
 
             li {
                 font-size: 1.1em;
+                padding-right: 1em;
             }
         }
     }

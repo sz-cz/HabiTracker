@@ -1,23 +1,45 @@
-input {
-  // flex-basis: 10%;
-  height: 1.75em;
-  border: 1px gray solid;
-  color: black;
-  font-size: 1.5em;
-  padding: 10px;
+@import './../../shared/stylesheet/mixins.less';
+
+.title {
+  text-align: center;
+  margin-bottom: 1em;
 }
 
-button {
-  padding: 1em;
-  margin: 1em 0 .5em 50%;
-  transform: translateX(-50%);
-  background-color: #dd1133;
-  border: none;
-  border-radius: 8px;
-  text-transform: uppercase;
-  color: white;
+.admin-info {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  .center;
+  color: grey
+}
 
-  &:hover {
-      background-color: #990033;
+.log-in {
+
+  display: flex;
+  flex-direction: column;
+  .center;
+
+  &__login, &__pass {
+    height: 1.75em;
+    border: 1px gray solid;
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    padding: 10px;
+  }
+  
+  button {
+    padding: 1em;
+    background-color: #dd1133;
+    margin-top: .5em;
+    border: none;
+    border-radius: 8px;
+    text-transform: uppercase;
+    color: white;
+  
+    &:hover {
+        background-color: #990033;
+    }
   }
 }
+

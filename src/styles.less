@@ -1,10 +1,5 @@
-@value0-color: rgb(219, 95, 57);
-@value1-color: rgb(217, 219, 57);
-@value2-color: rgb(151, 194, 49);
-@value3-color: rgb(68, 192, 51);
-@value4-color: rgb(62, 194, 194);
-@value5-color: rgb(62, 141, 187);
-@value6-color: rgb(80, 80, 80);
+@import './app/shared/stylesheet/variables.less';
+@import './app/shared/stylesheet/mixins.less';
 
 * {
     margin: 0;
@@ -21,11 +16,6 @@ body {
         margin-bottom: .25em;
         margin-left: .5em;
     }
-
-    .card h2 {
-        margin-left: 1.5em;
-        margin-top: 1em
-    }
     p {
         font-family: carlito;
     }
@@ -34,60 +24,133 @@ body {
     }
 }
 
-div.container {
+.card__title {
+    margin-left: 1.5em;
+    margin-top: 1em
+}
+
+
+.container {
     padding: 2em 0em;
     margin: 0 auto;
     max-width: 1200px;
-    // min-height: 90vh;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 1px 1px #eee;
+}
 
-    div.content {
-        // border-left: 4px solid #ddd;
-        padding: 1em 2em;
-        border-bottom: #eee solid 1px;
-        background-color: #fff;
+.content {
+    padding: 1em 2em;
+    border-bottom: #eee solid 1px;
+    background-color: #fff;
 
-        &:nth-child(even) {
-            background-color: #fbfbfb;
+    &:nth-child(even) {
+        background-color: #fbfbfb;
+    }
+
+    p {
+        margin-bottom: .5em;
+        font-size: 1.1em;
+    }
+}
+
+.habit-title {
+    margin-bottom: .5em;
+    font-size: 1.25em;
+    position: relative;
+
+    &__bar {
+        position: absolute;
+        right: 1%;
+        top: 1%;
+    
+        img {
+            height: 1em;
+            transition: .3s;
+    
+            &:hover {
+                transform: rotate(90deg);
+            }
+            &.active {
+                transform: rotate(90deg);
+            }
         }
+    }
 
-        p {
-            margin-bottom: .5em;
-            font-size: 1.1em;
+    b {
+        background-color: transparent;
+    }
+}
+
+.details {
+    transition: .3s;
+
+    * {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+    }
+}
+
+.showed-details {
+    position: relative;
+    padding-bottom: 1em;
+
+    * {
+        display: block;
+        opacity: 1;
+    }
+
+    .challenges {
+        display: flex;
+    }
+
+    .details-buttons {
+        position: absolute;
+        display: flex;
+        bottom: 1%;
+        right: 1%;
+
+        .detail-button img {
+            height: 1em;
+            display: flex;
+            margin-left: .5em;
+            margin-right: .5em;
+            transition: .2s;
+
+            &:hover {
+                height: 1.2em;
+            }
         }
     }
 }
-.scroll-top-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    height: 30px;
-    width: 30px;
-    border-radius: 5px;
-    color: white;
-    background: blue;
-    padding-top: 5px;
-    text-align: center;
-    cursor: pointer;
-    display: block;
+
+.days {
+    display: flex;
+    padding-bottom: 1em;
+
+    .day {
+        color: white;
+    }
+
+    .day:hover {
+        filter: brightness(110%);
+    }
 }
+
+
 .day {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    .center;
     padding: .2em 0;
-    // flex-basis: 3.5%;
     width: 2.5em;
     height: 2.5em;
     border: 1px #fff solid;
     background-color: #ccc;
     color: white;
     cursor: pointer;
-    // border-radius: 50%
 }
 
 .value0 {
@@ -118,17 +181,19 @@ div.container {
     color: @value6-color;
     background-color: @value6-color
 }
+
 b {
-    // text-decoration: underline
     font-size: 125%;
 }
-div.today {
+
+.today {
     margin: 0 4px;
     position: relative;
     border-radius: 50%;
     font-weight: bold;
 }
-div.description {
+
+.description {
     background-color: #fcfcfc;
     padding: 0.5em 0;
     margin-bottom: .5em;

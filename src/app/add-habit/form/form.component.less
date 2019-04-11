@@ -1,3 +1,5 @@
+@import './../../shared/stylesheet/mixins.less';
+
 .error {
     background-color: rgb(248, 175, 175);
 }
@@ -7,8 +9,7 @@ h2 {
 div.main-row {
     width: 100%;
     display: flex;
-    align-content: center;
-    justify-content: center;
+    .center;
     flex-wrap: wrap;
     margin-bottom: 1em;
     border-bottom: 2px dotted #aaa;
@@ -19,17 +20,16 @@ div.main-row {
         flex-basis: 10%;
         margin-bottom: .5em;
         flex-wrap: wrap;
-        align-content: center;
-        justify-content: center;
+        .center;
 
         input {
-            // flex-basis: 10%;
             width: 4em;
             height: 1.5em;
             font-size: 1.25em;
             text-align: center;
             border: solid 1px #ccc
         }
+
         p {
             margin-bottom: 0;
         }
@@ -59,7 +59,6 @@ div.main-row {
             }
         }
 
-
         .value {
             width: 5em;
             text-align: center;
@@ -70,6 +69,7 @@ div.main-row {
         flex-basis: 100%;
     }
 }
+
 button {
     padding: 1em;
     margin: 1em 0 .5em 50%;
@@ -102,13 +102,10 @@ div.habit-title {
 }
 
 div.days {
-    display: flex;
-    padding-bottom: 1em;
 
     div.day {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        .center;
         padding: .2em 0;
         flex-basis: 3.5%;
         border: 1px #fff solid;
@@ -135,114 +132,114 @@ input {
         color: #666
     }}
 
+div.days {
+    div.value6 {
+        background-color: rgb(80, 80, 80)
+    }
+}
+img.delete {
+    height: 1em;
+    display: inline-block;
+    margin-left: .5em;
+    margin-right: .5em;
+    transition: .2s;
+}
+
+@media (max-width: 800px) {
     div.days {
-        div.value6 {
-            background-color: rgb(80, 80, 80)
+        flex-wrap: wrap;
+        padding-bottom: 0;
+    
+        div.day {
+            flex-basis: calc(100%/14);
+            margin-bottom: .25em
+        }
+    
+        div.day:hover {
+            filter: brightness(110%);
         }
     }
-    img.delete {
-        height: 1em;
-        display: inline-block;
-        margin-left: .5em;
-        margin-right: .5em;
-        transition: .2s;
+}
+
+@media (max-width: 600px) {
+    h2 {
+        display: none
     }
 
-    @media (max-width: 800px) {
-        div.days {
-            flex-wrap: wrap;
-            padding-bottom: 0;
-        
-            div.day {
-                flex-basis: calc(100%/14);
-                margin-bottom: .25em
-            }
-        
-            div.day:hover {
-                filter: brightness(110%);
-            }
+    div.days {
+    
+        div.day {
+            flex-basis: calc(100%/7);
+            margin-bottom: .1em
         }
     }
+    .challenges {
+        margin-bottom: .5em;
+        flex-wrap: wrap;
 
-    @media (max-width: 600px) {
-        h2 {
-            display: none
+        .challenge {
+            flex-basis: 100%;
+
         }
+    }
+    div.showed-details {
+        .details-buttons {
+            bottom: 0;
+            right: 0;
+        }
+    }
+    div.main-row {
+        width: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin-bottom: 1em;
+        border-bottom: 2px dotted #aaa;
+        padding: 0.5em .5em 0 0.5em;
 
-        div.days {
-        
-            div.day {
-                flex-basis: calc(100%/7);
-                margin-bottom: .1em
+        .input-row {
+            display: flex;
+            flex-basis: 100%;
+            margin-bottom: .5em;
+    
+            textarea {
+                font-size: 1em;
+            }
+            input.challenge {
+                width: 100%;
+            }
+            
+            .text {
+                // flex-basis: 10%;
+                width: 5em;
+                font-size: 1.25em;
+                // flex-grow: 1;
+            }
+
+            .value {
+                width: 3em;
+                font-size: 1.25em;
             }
         }
-        .challenges {
+    
+        .inputs-row {
+            display: flex;
+            flex-basis: 25%;
             margin-bottom: .5em;
             flex-wrap: wrap;
-    
-            .challenge {
-                flex-basis: 100%;
-    
-            }
-        }
-        div.showed-details {
-            .details-buttons {
-                bottom: 0;
-                right: 0;
-            }
-        }
-        div.main-row {
-            width: 100%;
-            display: flex;
             align-content: center;
             justify-content: center;
-            margin-bottom: 1em;
-            border-bottom: 2px dotted #aaa;
-            padding: 0.5em .5em 0 0.5em;
 
-            .input-row {
-                display: flex;
-                flex-basis: 100%;
-                margin-bottom: .5em;
-        
-                textarea {
-                    font-size: 1em;
-                }
-                input.challenge {
-                    width: 100%;
-                }
-                
-                .text {
-                    // flex-basis: 10%;
-                    width: 5em;
-                    font-size: 1.25em;
-                    // flex-grow: 1;
-                }
-    
-                .value {
-                    width: 3em;
-                    font-size: 1.25em;
-                }
+            &:nth-child(3) {
+                flex-basis: 0%
             }
-        
-            .inputs-row {
-                display: flex;
-                flex-basis: 25%;
-                margin-bottom: .5em;
-                flex-wrap: wrap;
-                align-content: center;
-                justify-content: center;
 
-                &:nth-child(3) {
-                    flex-basis: 0%
-                }
-
-                input {
-                    // flex-basis: 10%;
-                    width: 3.5em;
-                    height: 1.5em;
-                    font-size: 1.25em;
-                }
+            input {
+                // flex-basis: 10%;
+                width: 3.5em;
+                height: 1.5em;
+                font-size: 1.25em;
             }
         }
     }
+}

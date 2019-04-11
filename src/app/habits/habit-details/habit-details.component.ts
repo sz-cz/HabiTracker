@@ -6,7 +6,6 @@ import { Habit } from '../models/habit';
 @Component({
   selector: 'app-habit-details',
   templateUrl: './habit-details.component.html',
-  styleUrls: ['./habit-details.component.less']
 })
 export class HabitDetailsComponent implements OnInit {
 

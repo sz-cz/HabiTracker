@@ -11,6 +11,7 @@ export class LoginComponent {
 
   login = '';
   password = '';
+  showValidationProblem = false
 
   constructor(private authService : AuthService, private router : Router) { }
 
@@ -19,10 +20,10 @@ export class LoginComponent {
     this.router.navigate(['/habits'])
   }
   private onSubmiitFailure() {
-    console.log('Login nieprawidłowy')
+    this.showValidationProblem = true;
   }
 
   onSubmit() {
-    this.authService.login(this.login, this.password).then(this.onSubmiitSuccess.bind(this), this.onSubmiitFailure)
+    this.authService.login(this.login, this.password).then(this.onSubmiitSuccess.bind(this), this.onSubmiitFailure.bind(this))
   }
 }
