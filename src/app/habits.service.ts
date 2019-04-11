@@ -354,7 +354,7 @@ export class HabitsService {
   sendHabit(habit : Habit) {
     this.passHabits.push(habit);
     this.habitToPass$.next(this.passHabits);
-    localStorage.setItem("habits", JSON.stringify(this.passHabits));
+    // localStorage.setItem("habits", JSON.stringify(this.passHabits));
   }
   getHabit(id : number) : Habit {
     const index = this.passHabits.findIndex(habit => habit.id == id )
