@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
 import { HabitsService } from 'src/app/habits.service';
 import { Habit } from 'src/app/habits/models/habit';
-import { CustomValidators } from 'src/app/shared/validators/custom-validators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -189,7 +188,7 @@ export class FormComponent implements OnInit {
       nameStart: ["", Validators.required],
       nameEnd: "",
       value1: "",
-      value2: [, CustomValidators.power],
+      value2: "",
       value3: [, Validators.required],
       value4: "",
       value5: "",

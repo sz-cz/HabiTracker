@@ -9,7 +9,7 @@ import { HabitsService } from '../../habits.service';
 })
 export class HabitsListComponent implements OnInit, AfterViewInit {
 
-  @ViewChild("habitName") habitName : ElementRef;
+  @ViewChild("habitName", {static: false}) habitName : ElementRef;
 
   habits : Habit[] = [];
   today: Date = new Date();

@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { utf8Encode } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-quote-box',
@@ -10,7 +9,7 @@ import { utf8Encode } from '@angular/compiler/src/util';
 export class QuoteBoxComponent implements OnInit, AfterViewInit {
   quoteContent
   quoteAuthor
-  quotesAPI : string = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+  quotesAPI : string = "https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand&per_page=1";
 
   constructor() { }
 
@@ -24,8 +23,8 @@ export class QuoteBoxComponent implements OnInit, AfterViewInit {
     fetch(this.quotesAPI)
     .then(response => response.json())
     .then(data => {
-      this.quoteAuthor = data[0].title;
-      this.quoteContent = this.cutQuote(data[0].content);
+      this.quoteAuthor = data[0].title.rendered;
+      this.quoteContent = this.cutQuote(data[0].excerpt.rendered);
       console.log(data[0].content)
     })
   }
